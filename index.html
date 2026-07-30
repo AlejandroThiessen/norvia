@@ -1,0 +1,896 @@
+<!doctype html>
+<!-- ════════════════════════════════════════════════════════════════════
+     NORVIA — websites for small businesses · Chihuahua, México
+     ─────────────────────────────────────────────────────────────────────
+     Hand-written. No build step, no framework, no dependencies.
+     Open this file in a browser and it runs.
+
+     EDIT GUIDE
+       · WhatsApp number ..... search for 521XXXXXXXXXX (this file + site.js)
+       · Prices .............. search for 199 / 29
+       · Colors / spacing .... assets/site.css → :root
+       · Spanish copy ........ every data-es="…" attribute below
+     ════════════════════════════════════════════════════════════════════ -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title data-es="NORVIA — Sitios web para negocios · Chihuahua, México">NORVIA — Websites for Small Businesses · Chihuahua, México</title>
+<meta name="description" data-es="Un sitio web real para tu negocio: rápido, bilingüe y hecho para que te encuentren en Google. Listo en una semana. $199 USD una sola vez, $29 USD al mes por hosting y mantenimiento." content="A real website for your business — fast, bilingual, and built to be found on Google. Ready in one week. $199 USD once, $29 USD/month for hosting and care.">
+<meta name="author" content="NORVIA">
+<meta name="theme-color" content="#0b0d10">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="NORVIA — Websites for Small Businesses">
+<meta property="og:description" content="A real website for your business — fast, bilingual, built to be found. One week. $199 USD.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_MX">
+<meta property="og:url" content="https://alejandrothiessen.github.io/norvia/">
+<!-- The share card. This is what a client sees when your link is pasted
+     into WhatsApp, so it matters more here than almost anywhere. -->
+<meta property="og:image" content="https://alejandrothiessen.github.io/norvia/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NORVIA — Your business, found. $199 USD, delivered in one week.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://alejandrothiessen.github.io/norvia/assets/og.jpg">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://alejandrothiessen.github.io/norvia/">
+<link rel="alternate" hreflang="en" href="https://alejandrothiessen.github.io/norvia/">
+<link rel="alternate" hreflang="es" href="https://alejandrothiessen.github.io/norvia/?lang=es">
+<link rel="alternate" hreflang="x-default" href="https://alejandrothiessen.github.io/norvia/">
+
+<!-- Local-business structured data. The page sells this as part of every
+     build, so it had better be here. Validate at search.google.com/test/rich-results
+     after changing anything. Add "telephone" once the real number is set. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "NORVIA",
+  "description": "Hand-built websites for small businesses in Chihuahua, México. Fast, bilingual, and built to be found on Google.",
+  "url": "https://alejandrothiessen.github.io/norvia/",
+  "image": "https://alejandrothiessen.github.io/norvia/assets/og.jpg",
+  "email": "hola@norvia.mx",
+  "priceRange": "$199–$228 USD",
+  "currenciesAccepted": "USD, MXN",
+  "knowsLanguage": ["en", "es"],
+  "areaServed": [
+    { "@type": "State", "name": "Chihuahua", "containedInPlace": { "@type": "Country", "name": "México" } }
+  ],
+  "address": { "@type": "PostalAddress", "addressRegion": "Chihuahua", "addressCountry": "MX" },
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "name": "Website design and build",
+      "description": "Up to 5 pages, designed and written, bilingual English/Español, WhatsApp and map integration, photo gallery. Delivered in one week.",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "199", "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Hosting and care",
+      "description": "Hosting with SSL, uptime monitoring, automatic backups, and small content edits included.",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "29", "priceCurrency": "USD",
+        "billingIncrement": 1, "unitCode": "MON"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Fonts. On a paid host these should be self-hosted .woff2 files in
+     assets/fonts/ — see README. The CDN link is the zero-setup version. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<a class="skip" href="#main" data-es="Saltar al contenido">Skip to content</a>
+
+<!-- ── icon sprite ──────────────────────────────────────────────────── -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.94.55 3.75 1.5 5.28L2 22l5-1.63a9.8 9.8 0 0 0 5.04 1.38c5.44 0 9.84-4.4 9.84-9.84S17.48 2 12.04 2zm0 17.9c-1.6 0-3.1-.44-4.38-1.2l-.31-.19-3.24 1.06 1.07-3.16-.2-.32a7.98 7.98 0 0 1-1.24-4.25c0-4.43 3.6-8.03 8.03-8.03s8.02 3.6 8.02 8.03-3.6 8.06-8.02 8.06zm4.5-5.9c-.24-.13-1.46-.72-1.68-.8-.23-.09-.4-.13-.56.12-.16.25-.63.8-.77.96-.14.16-.28.18-.52.06a6.5 6.5 0 0 1-1.92-1.19 7.2 7.2 0 0 1-1.33-1.65c-.14-.25-.01-.39.11-.52.12-.13.25-.31.37-.47.12-.16.16-.27.24-.45.08-.18.04-.33-.02-.47-.06-.14-.55-1.35-.75-1.84-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.25-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.7 2.72 4.13 3.7.58.24 1.03.38 1.38.49.58.18 1.11.16 1.53.1.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.29z"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="7" y="2.6" width="10" height="18.8" rx="2.2"/><path d="M10.8 5.2h2.4"/><path d="M11 18.9h2"/>
+    </symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 21.5s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10.3" r="2.6"/>
+    </symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="10.8" cy="10.8" r="6.8"/><path d="M15.8 15.8L21 21"/>
+    </symbol>
+    <symbol id="i-gallery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.4" cy="10" r="1.6"/><path d="M3.6 17l4.9-4.4 4 3.5 3-2.6 4 3.5"/>
+    </symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13.4 2.5L5 13.6h5.2L9.9 21.5 18.4 10h-5.3z"/>
+    </symbol>
+    <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="8.2" cy="15.8" r="4.2"/><path d="M11.3 12.7L20 4"/><path d="M16.4 7.6l2.4 2.4"/><path d="M18.6 5.4L21 7.8"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2.8l7.4 2.7v6c0 4.5-3.1 8.5-7.4 9.7-4.3-1.2-7.4-5.2-7.4-9.7v-6z"/><path d="M8.8 12l2.3 2.3 4.1-4.4"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/><path d="M12 7v5.3l3.4 2"/>
+    </symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 20h4.2L20 8.2 15.8 4 4 15.8z"/><path d="M13.9 5.9l4.2 4.2"/>
+    </symbol>
+    <symbol id="i-save" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12a9 9 0 1 1-3.3-6.9"/><path d="M21 4.2v4.4h-4.4"/><path d="M12 8v4.4l3 1.8"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.6 12.6l4.6 4.6L19.4 7"/>
+    </symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 6l12 12M18 6L6 18"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12h15"/><path d="M13.2 5.8L19.4 12l-6.2 6.2"/>
+    </symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13.4 4.6H19.4v6"/><path d="M19.4 4.6L10.8 13.2"/><path d="M17.4 14v4.4a1.6 1.6 0 0 1-1.6 1.6H5.6A1.6 1.6 0 0 1 4 18.4V8.2a1.6 1.6 0 0 1 1.6-1.6H10"/>
+    </symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2.8a4 4 0 0 0-4 4V9H7.2A1.2 1.2 0 0 0 6 10.2v9.6A1.2 1.2 0 0 0 7.2 21h9.6a1.2 1.2 0 0 0 1.2-1.2v-9.6A1.2 1.2 0 0 0 16.8 9H16V6.8a4 4 0 0 0-4-4zm0 1.8a2.2 2.2 0 0 1 2.2 2.2V9H9.8V6.8A2.2 2.2 0 0 1 12 4.6z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ── nav ──────────────────────────────────────────────────────────── -->
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="brand" href="#top" aria-label="NORVIA — home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <path d="M4 22L14 6l10 16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9.6 22L14 15l4.4 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".42"/>
+        </svg>
+      </span>
+      <span class="brand__word">NORVIA</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Main">
+      <a href="#work"  data-es="Trabajo">Work</a>
+      <a href="#get"   data-es="Qué incluye">What you get</a>
+      <a href="#price" data-es="Precio">Pricing</a>
+      <a href="#how"   data-es="Cómo funciona">How it works</a>
+      <a href="#faq"   data-es="Preguntas">FAQ</a>
+    </nav>
+
+    <div class="nav__act">
+      <button class="lang" id="langBtn" type="button" aria-label="Switch language / Cambiar idioma">
+        <span data-l="en" class="is-on">EN</span><i aria-hidden="true">/</i><span data-l="es">ES</span>
+      </button>
+      <a class="btn btn--sm btn--wa" href="https://wa.me/521XXXXXXXXXX?text=Hola%20NORVIA%2C%20quiero%20un%20sitio%20web%20para%20mi%20negocio." target="_blank" rel="noopener" data-wa>
+        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
+        <span data-es="Escríbeme">Message me</span>
+      </a>
+      <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="drawer" id="drawer" hidden>
+    <a href="#work"  data-es="Trabajo">Work</a>
+    <a href="#get"   data-es="Qué incluye">What you get</a>
+    <a href="#price" data-es="Precio">Pricing</a>
+    <a href="#how"   data-es="Cómo funciona">How it works</a>
+    <a href="#faq"   data-es="Preguntas">FAQ</a>
+    <a class="drawer__wa" href="https://wa.me/521XXXXXXXXXX?text=Hola%20NORVIA%2C%20quiero%20un%20sitio%20web%20para%20mi%20negocio." target="_blank" rel="noopener" data-wa>
+      <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
+      <span data-es="Escríbeme por WhatsApp">Message me on WhatsApp</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ── hero ─────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <span class="orb orb--1"></span>
+    <span class="orb orb--2"></span>
+    <span class="grid-lines"></span>
+  </div>
+
+  <div class="wrap hero__in">
+    <div class="hero__copy">
+      <p class="eyebrow r" data-es="Sitios web para negocios · Chihuahua, México">Websites for small businesses · Chihuahua, México</p>
+
+      <h1 class="hero__t r">
+        <span data-es="Tu negocio,">Your business,</span><br>
+        <em class="ac">
+          <span data-es="encontrado.">found.</span>
+          <svg class="ul" viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M2 8.5C48 3.6 104 2.4 150 4.2c46 1.8 92 4.4 148 2.1" pathLength="1" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+          </svg>
+        </em>
+      </h1>
+
+      <p class="hero__sub r" data-es="Un sitio web real — rápido, bilingüe y hecho para que la gente te encuentre en Google. No una plantilla. Código escrito a mano, listo en una semana.">A real website — fast, bilingual, and built so people actually find you on Google. Not a template. Hand-written code, live in one week.</p>
+
+      <div class="hero__cta r">
+        <a class="btn btn--wa btn--lg" href="https://wa.me/521XXXXXXXXXX?text=Hola%20NORVIA%2C%20quiero%20un%20sitio%20web%20para%20mi%20negocio." target="_blank" rel="noopener" data-wa>
+          <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
+          <span data-es="Escríbeme por WhatsApp">Message me on WhatsApp</span>
+        </a>
+        <a class="btn btn--ghost btn--lg" href="#work">
+          <span data-es="Ver el trabajo">See the work</span>
+          <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+
+      <dl class="hero__meta r">
+        <div>
+          <dt data-es="El sitio">The website</dt>
+          <dd><b>$199</b> <span class="u">USD</span> <i data-es="una vez">once</i></dd>
+        </div>
+        <div>
+          <dt data-es="Hosting y mantenimiento">Hosting &amp; care</dt>
+          <dd><b>$29</b> <span class="u">USD</span> <i data-es="al mes">/month</i></dd>
+        </div>
+        <div>
+          <dt data-es="Entrega">Delivered in</dt>
+          <dd><b>1</b> <i data-es="semana">week</i></dd>
+        </div>
+      </dl>
+
+      <p class="hero__fine r" data-es="Sin contratos. Cancela el mes que quieras y el sitio es tuyo.">No contracts. Cancel any month — the site stays yours.</p>
+    </div>
+
+    <!-- Live mockups. Everything inside these frames is real HTML & CSS,
+         scaled down and set scrolling — no screenshots, no images. -->
+    <div class="hero__stage r" aria-hidden="true">
+
+      <div class="device" id="device">
+        <div class="device__bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="device__url">
+            <svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>
+            tu-taller.com
+          </span>
+        </div>
+        <div class="device__view">
+          <!-- the nav sits outside .mini so it stays pinned while the
+               page behind it scrolls, exactly like a real sticky header -->
+          <div class="mini__nav"><b>TALLER&nbsp;RAMOS</b><s></s><s></s><s></s><em>Agendar</em></div>
+          <div class="mini mini--shop" id="miniA">
+            <div class="mini__hero">
+              <div class="mini__ht">Servicio honesto,<br>trabajo que dura.</div>
+              <div class="mini__hb">Agenda hoy</div>
+            </div>
+            <div class="mini__sec">
+              <div class="mini__h2">Servicios<em></em></div>
+              <div class="mini__row">
+                <div class="mini__card"><span class="mini__ic"></span><i>Afinación</i><u></u></div>
+                <div class="mini__card"><span class="mini__ic"></span><i>Frenos</i><u></u></div>
+                <div class="mini__card"><span class="mini__ic"></span><i>Diésel</i><u></u></div>
+              </div>
+            </div>
+            <div class="mini__band"><b>15 años en Campo 4</b><u></u></div>
+            <div class="mini__sec">
+              <div class="mini__h2">Nuestro trabajo<em></em></div>
+              <div class="mini__grid">
+                <span class="ph"><b></b></span><span class="ph"><b></b></span><span class="ph"><b></b></span>
+                <span class="ph"><b></b></span><span class="ph"><b></b></span><span class="ph"><b></b></span>
+              </div>
+            </div>
+            <div class="mini__sec mini__sec--alt">
+              <div class="mini__h2">Reseñas<em></em></div>
+              <div class="mini__rev"><span class="st">★★★★★</span><i></i><u></u></div>
+              <div class="mini__rev"><span class="st">★★★★★</span><i></i><u></u></div>
+            </div>
+            <div class="mini__foot"><i></i><u></u></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone" id="phone">
+        <div class="phone__notch"></div>
+        <div class="phone__view">
+          <div class="mini__nav mini__nav--c"><b>CARNICERÍA</b></div>
+          <div class="mini mini--meat" id="miniB">
+            <div class="mini__hero mini__hero--c">
+              <div class="mini__ht">Cortes<br>del día</div>
+              <div class="mini__hb mini__hb--c">Ver tienda</div>
+            </div>
+            <div class="mini__sec">
+              <div class="mini__h2">Cortes<em></em></div>
+              <div class="mini__stack">
+                <span><b></b><i>Ribeye</i><o>$389</o></span>
+                <span><b></b><i>Arrachera</i><o>$249</o></span>
+                <span><b></b><i>Sirloin</i><o>$219</o></span>
+              </div>
+            </div>
+            <div class="mini__band mini__band--c"><i></i><u></u></div>
+            <div class="mini__sec">
+              <div class="mini__h2">Sazonadores<em></em></div>
+              <div class="mini__stack">
+                <span><b></b><i>BBQ Rub</i><o>$95</o></span>
+                <span><b></b><i>Chimichurri</i><o>$85</o></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="badge badge--speed">
+        <span class="badge__n" id="loadN">0.00</span><span class="badge__u">s</span>
+        <span class="badge__l" data-es="carga">load</span>
+      </div>
+      <div class="badge badge--live">
+        <span class="pulse"></span><span data-es="en vivo">live</span>
+      </div>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#ticker" aria-hidden="true" tabindex="-1"><span></span></a>
+</section>
+
+<!-- ── ticker ───────────────────────────────────────────────────────── -->
+<section class="ticker" id="ticker" aria-hidden="true">
+  <div class="ticker__t" id="tick">
+    <span>
+      <b data-es="Diseño para celular primero">Mobile first</b><i>◆</i>
+      <b data-es="Inglés y Español">English &amp; Español</b><i>◆</i>
+      <b data-es="WhatsApp integrado">WhatsApp built in</b><i>◆</i>
+      <b data-es="Google Maps">Google Maps</b><i>◆</i>
+      <b data-es="Encontrado en Google">Found on Google</b><i>◆</i>
+      <b data-es="Galería de fotos">Photo gallery</b><i>◆</i>
+      <b data-es="Carga en menos de un segundo">Under one second</b><i>◆</i>
+      <b data-es="Sin WordPress">No WordPress</b><i>◆</i>
+      <b data-es="Sin plugins que se rompan">No plugins to break</b><i>◆</i>
+      <b data-es="Es tuyo para siempre">Yours forever</b><i>◆</i>
+    </span>
+  </div>
+</section>
+
+<!-- ── the problem ──────────────────────────────────────────────────── -->
+<section class="statement">
+  <span class="statement__bg" aria-hidden="true"></span>
+  <div class="wrap">
+    <p class="eyebrow r" data-es="El problema">The problem</p>
+    <h2 class="statement__t r">
+      <span data-es="Ahora mismo alguien está buscando lo que tú vendes —">Right now someone is searching for what you sell —</span>
+      <em data-es="y está encontrando a tu competencia.">and finding your competitor.</em>
+    </h2>
+
+    <div class="statement__cols r">
+      <p data-es="No es porque ellos sean mejores que tú. Es porque cuando alguien busca tu negocio en el celular, aparece algo. Una página. Un horario. Un botón para llamar. Y tú apareces como un número viejo en un directorio, o no apareces.">It isn't because they're better than you. It's because when someone looks them up on their phone, <b>something appears.</b> A page. Hours. A button to call. And you show up as an old number in a directory, or not at all.</p>
+      <p data-es="Una recomendación de boca en boca todavía termina en el celular. Alguien te recomienda, la persona busca tu nombre, y lo que encuentra ahí decide si te escribe o sigue buscando.">Word of mouth still ends up on a phone. Someone recommends you, the next person searches your name — and what they find there decides whether they message you or keep scrolling.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── what you get ─────────────────────────────────────────────────── -->
+<section class="sec" id="get">
+  <div class="wrap">
+    <header class="sec__h r">
+      <p class="eyebrow" data-es="Qué incluye">What you get</p>
+      <h2 class="sec__t" data-es="Todo lo de abajo, por $199 USD.">Everything below, for $199 USD.</h2>
+      <p class="sec__sub" data-es="No es una lista de extras. Es lo que trae cada sitio que hago, sin cargos escondidos.">Not an upsell list. This is what every site I build comes with, with nothing held back for later.</p>
+    </header>
+
+    <div class="cards" id="getCards">
+      <article class="card r">
+        <svg class="card__ic" aria-hidden="true"><use href="#i-phone"/></svg>
+        <h3 data-es="Se ve bien en cualquier celular">Looks right on every phone</h3>
+        <p data-es="Casi toda tu gente va a llegar desde un celular. El sitio se diseña primero para esa pantalla, no se le encoge después.">Most of your people will arrive on a phone. The site is designed for that screen first and widened out for desktop — not shrunk down afterward.</p>
+      </article>
+
+      <article class="card r">
+        <svg class="card__ic" aria-hidden="true"><use href="#i-globe"/></svg>
+        <h3 data-es="Inglés y Español, un botón">English &amp; Español, one button</h3>
+        <p data-es="Todo el sitio en los dos idiomas, con un botón para cambiar. No dos sitios separados: uno, que habla los dos.">The whole site in both languages behind one toggle. Not two separate sites — one site that speaks both, the way this page does.</p>
+      </article>
+
+      <article class="card r">
+        <svg class="card__ic" aria-hidden="true"><use href="#i-wa"/></svg>
+        <h3 data-es="WhatsApp de un toque">WhatsApp in one tap</h3>
+        <p data-es="Un botón que abre WhatsApp con el mensaje ya escrito. Así te llega la gente aquí — no por formularios que nadie llena.">A button that opens WhatsApp with the message already written. That's how people actually reach a business here — not through forms nobody fills in.</p>
+      </article>
+
+      <article class="card r">
+        <svg class="card__ic" aria-hidden="true"><use href="#i-pin"/></svg>
+        <h3 data-es="Mapa y cómo llegar">Map and directions</h3>
+        <p data-es="Tu ubicación real en un mapa, con un toque para abrir la ruta en Google Maps o Waze. Y tus horarios, claros.">Your real location on a map, one tap to open the route in Google Maps or Waze — plus your hours, stated plainly.</p>
+      </article>
+
+      <article class="card r">
+        <svg class="card__ic" aria-hidden="true"><use href="#i-search"/></svg>
+        <h3 data-es="Hecho para que te encuentren">Built to be found</h3>
+        <p data-es="Títulos y descripciones escritos a propósito, datos de negocio local, sitemap y todo lo que Google necesita leer. Sin trucos.">Purposeful titles and descriptions, local-business structured data, a sitemap, and clean semantic markup — everything Google needs to read you correctly. No tricks.</p>
+      </article>
+
+      <article class="card r">
+        <svg class="card__ic" aria-hidden="true"><use href="#i-gallery"/></svg>
+        <h3 data-es="Galería de tu trabajo real">A gallery of your real work</h3>
+        <p data-es="Fotos de lo que haces, no imágenes de banco. Con visor de pantalla completa. Nada convence más que tu propio trabajo.">Photos of what you actually do, not stock images, in a proper full-screen viewer. Nothing sells you better than your own work.</p>
+      </article>
+
+      <article class="card r">
+        <svg class="card__ic" aria-hidden="true"><use href="#i-bolt"/></svg>
+        <h3 data-es="Carga antes de que sueltes el dedo">Loads before you lift your thumb</h3>
+        <p data-es="Sin WordPress, sin constructores, sin veinte plugins. HTML, CSS y JavaScript escritos a mano. Por eso es tan rápido y por eso no se rompe.">No WordPress, no page builder, no twenty plugins. Hand-written HTML, CSS and JavaScript. That's why it's fast, and why there's nothing in it to break.</p>
+      </article>
+
+      <article class="card r">
+        <svg class="card__ic" aria-hidden="true"><use href="#i-key"/></svg>
+        <h3 data-es="Es tuyo, de verdad">Yours, actually yours</h3>
+        <p data-es="El dominio va a tu nombre y los archivos son tuyos. Si algún día te quieres ir, te los entrego y ya. Nada te amarra conmigo.">The domain is registered in your name and the files are yours. If you ever want to leave, I hand them over and that's it. Nothing locks you in.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── the standard / gauges ────────────────────────────────────────── -->
+<section class="sec sec--dark" id="speed">
+  <div class="wrap">
+    <header class="sec__h sec__h--split r">
+      <div>
+        <p class="eyebrow" data-es="El estándar">The standard</p>
+        <h2 class="sec__t" data-es="Rápido no es un extra. Es el trabajo.">Fast isn't a feature. It's the job.</h2>
+      </div>
+      <p class="sec__sub" data-es="Google mide cada sitio con estas cuatro pruebas y usa el resultado para decidir a quién muestra primero. Esto es lo que busco en cada entrega — y lo que reviso antes de que salga en vivo.">Google measures every site on these four tests and uses the result to decide who it shows first. These are the numbers I build toward, and I check them before anything goes live.</p>
+    </header>
+
+    <div class="gauges r" id="gauges">
+      <div class="gauge" data-v="100">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="gauge__trk" cx="60" cy="60" r="52"/>
+          <circle class="gauge__arc" cx="60" cy="60" r="52"/>
+        </svg>
+        <span class="gauge__n">0</span>
+        <span class="gauge__l" data-es="Rendimiento">Performance</span>
+      </div>
+      <div class="gauge" data-v="100">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="gauge__trk" cx="60" cy="60" r="52"/>
+          <circle class="gauge__arc" cx="60" cy="60" r="52"/>
+        </svg>
+        <span class="gauge__n">0</span>
+        <span class="gauge__l" data-es="Accesibilidad">Accessibility</span>
+      </div>
+      <div class="gauge" data-v="100">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="gauge__trk" cx="60" cy="60" r="52"/>
+          <circle class="gauge__arc" cx="60" cy="60" r="52"/>
+        </svg>
+        <span class="gauge__n">0</span>
+        <span class="gauge__l" data-es="Buenas prácticas">Best practices</span>
+      </div>
+      <div class="gauge" data-v="100">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="gauge__trk" cx="60" cy="60" r="52"/>
+          <circle class="gauge__arc" cx="60" cy="60" r="52"/>
+        </svg>
+        <span class="gauge__n">0</span>
+        <span class="gauge__l">SEO</span>
+      </div>
+    </div>
+
+    <ul class="facts r">
+      <li><b data-es="Escrito a mano">Hand-written</b><span data-es="Sin temas comprados ni constructores. Cada línea tiene una razón.">No bought themes, no builders. Every line has a reason to be there.</span></li>
+      <li><b data-es="Funciona sin JavaScript">Works without JavaScript</b><span data-es="Si algo falla, el sitio sigue siendo una página legible y usable.">If anything fails to load, the page is still readable and usable.</span></li>
+      <li><b data-es="Respeta la accesibilidad">Accessible by default</b><span data-es="Navegable con teclado, contraste revisado y compatible con lectores de pantalla.">Keyboard navigable, contrast checked, and readable by screen readers.</span></li>
+      <li><b data-es="Cero dependencias">Zero dependencies</b><span data-es="Nada que actualizar cada mes, nada que se rompa solo con el tiempo.">Nothing to update every month, nothing that quietly breaks on its own.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── the work ─────────────────────────────────────────────────────── -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <header class="sec__h r">
+      <p class="eyebrow" data-es="El trabajo">The work</p>
+      <h2 class="sec__t" data-es="Sitios en vivo. Ábrelos.">Live sites. Go open them.</h2>
+      <p class="sec__sub" data-es="No son maquetas. Son negocios reales aquí en Chihuahua. Pruébalos en tu celular — es donde van a llegar tus clientes.">These aren't mockups. They're real businesses here in Chihuahua. Try them on your phone — that's where your customers will arrive.</p>
+    </header>
+
+    <div class="work">
+      <a class="proj r" href="https://alejandrothiessen.github.io/nb-autoworks/index.html" target="_blank" rel="noopener">
+        <div class="proj__shot proj__shot--auto" aria-hidden="true">
+          <span class="proj__glow"></span>
+          <div class="proj__frame">
+            <div class="proj__bar"><s></s><s></s><s></s><em>nb-autoworks</em></div>
+            <img src="assets/work-nb.webp" width="1120" height="770" alt="" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="proj__meta">
+          <div>
+            <h3>NB Autoworks</h3>
+            <p data-es="Taller mecánico y mantenimiento · Campo 4, Chihuahua">Auto repair &amp; maintenance · Campo 4, Chihuahua</p>
+          </div>
+          <svg class="ico proj__ext" aria-hidden="true"><use href="#i-ext"/></svg>
+        </div>
+        <ul class="tags">
+          <li data-es="Bilingüe">Bilingual</li>
+          <li data-es="Reservas en línea">Online booking</li>
+          <li data-es="Galería">Gallery</li>
+          <li data-es="Varias páginas">Multi-page</li>
+        </ul>
+      </a>
+
+      <a class="proj r" href="https://alejandrothiessen.github.io/carnes-hildebrandt-demo/index.html" target="_blank" rel="noopener">
+        <div class="proj__shot proj__shot--meat" aria-hidden="true">
+          <span class="proj__glow"></span>
+          <div class="proj__frame">
+            <div class="proj__bar"><s></s><s></s><s></s><em>carnes-hildebrandt</em></div>
+            <img src="assets/work-ch.webp" width="1120" height="770" alt="" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="proj__meta">
+          <div>
+            <h3>Carnes Hildebrandt</h3>
+            <p data-es="Carnicería boutique y tienda en línea · Cuauhtémoc">Boutique butcher &amp; online store · Cuauhtémoc</p>
+          </div>
+          <svg class="ico proj__ext" aria-hidden="true"><use href="#i-ext"/></svg>
+        </div>
+        <ul class="tags">
+          <li data-es="Tienda">Shop</li>
+          <li data-es="Carrito">Cart</li>
+          <li data-es="Calculadora de carne">Meat calculator</li>
+          <li data-es="Pedidos por WhatsApp">WhatsApp orders</li>
+        </ul>
+      </a>
+
+      <a class="proj proj--ghost r" href="https://wa.me/521XXXXXXXXXX?text=Hola%20NORVIA%2C%20quiero%20un%20sitio%20web%20para%20mi%20negocio." target="_blank" rel="noopener" data-wa>
+        <div class="proj__shot proj__shot--ghost" aria-hidden="true">
+          <span class="plus"><i></i><i></i></span>
+        </div>
+        <div class="proj__meta">
+          <div>
+            <h3 data-es="Tu negocio aquí">Your business here</h3>
+            <p data-es="El siguiente sitio en esta lista puede ser el tuyo.">The next site on this list could be yours.</p>
+          </div>
+          <svg class="ico proj__ext" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </div>
+        <ul class="tags">
+          <li data-es="Una semana">One week</li>
+          <li>$199 USD</li>
+        </ul>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── how it works ─────────────────────────────────────────────────── -->
+<section class="sec sec--dark" id="how">
+  <div class="wrap">
+    <header class="sec__h r">
+      <p class="eyebrow" data-es="Cómo funciona">How it works</p>
+      <h2 class="sec__t" data-es="Cuatro pasos. Una semana.">Four steps. One week.</h2>
+      <p class="sec__sub" data-es="No necesitas saber nada de páginas web. Tú sabes de tu negocio — de eso me encargo yo.">You don't need to know anything about websites. You know your business; the website part is mine.</p>
+    </header>
+
+    <ol class="steps" id="steps">
+      <span class="steps__rail" aria-hidden="true"><i id="railFill"></i></span>
+
+      <li class="step r">
+        <span class="step__n">01</span>
+        <div>
+          <h3 data-es="Platicamos">We talk</h3>
+          <p data-es="Quince minutos por WhatsApp o una llamada. Qué haces, a quién le vendes y qué quieres que haga la gente cuando llegue al sitio: que te escriba, que te visite o que te llame.">Fifteen minutes on WhatsApp or a call. What you do, who you sell to, and what you want a visitor to actually do when they land: message you, visit you, or call.</p>
+          <span class="step__when" data-es="Día 1 · gratis, sin compromiso">Day 1 · free, no commitment</span>
+        </div>
+      </li>
+
+      <li class="step r">
+        <span class="step__n">02</span>
+        <div>
+          <h3 data-es="Me mandas lo que tengas">You send what you have</h3>
+          <p data-es="Fotos del negocio, logo, horarios, precios, dirección. Como estén, en WhatsApp. No tienes logo? No hay problema, te hago uno sencillo. Los textos los escribo yo y tú los apruebas.">Photos, logo, hours, prices, address — however they are, over WhatsApp. No logo? That's fine, I'll make you a simple one. I write the text and you approve it.</p>
+          <span class="step__when" data-es="Día 1–2 · 20 minutos de tu tiempo">Day 1–2 · 20 minutes of your time</span>
+        </div>
+      </li>
+
+      <li class="step r">
+        <span class="step__n">03</span>
+        <div>
+          <h3 data-es="Lo construyo">I build it</h3>
+          <p data-es="Tres a cinco días. Te mando un link en vivo para que lo veas en tu celular y me digas qué cambiar. Los ajustes están incluidos hasta que quedes conforme.">Three to five days. I send you a live link to open on your own phone and tell me what to change. Revisions are included until you're happy with it.</p>
+          <span class="step__when" data-es="Día 2–6 · tú sólo revisas">Day 2–6 · you just review</span>
+        </div>
+      </li>
+
+      <li class="step r">
+        <span class="step__n">04</span>
+        <div>
+          <h3 data-es="Sale en vivo y yo lo cuido">It goes live, and I keep it alive</h3>
+          <p data-es="Lo conecto a tu dominio, lo publico y desde ahí yo me encargo: que esté en línea, seguro, respaldado y sin errores. Tú vuelves a tu trabajo.">I connect your domain, publish it, and from then on it's on me: online, secure, backed up and error-free. You go back to work.</p>
+          <span class="step__when" data-es="Día 7 · y todos los días después">Day 7 · and every day after</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ── pricing ──────────────────────────────────────────────────────── -->
+<section class="sec" id="price">
+  <div class="wrap">
+    <header class="sec__h r">
+      <p class="eyebrow" data-es="Precio">Pricing</p>
+      <h2 class="sec__t" data-es="Dos números. Nada más.">Two numbers. That's the whole price list.</h2>
+      <p class="sec__sub" data-es="Sin cotizaciones misteriosas, sin “depende”, sin junta de ventas para saber cuánto cuesta.">No mystery quotes, no "it depends," no sales call required to find out what it costs.</p>
+    </header>
+
+    <div class="plans">
+      <article class="plan r">
+        <p class="plan__k" data-es="Una sola vez">One time</p>
+        <p class="plan__p"><span class="cur">$</span><b class="num" data-n="199">199</b><span class="cur cur--u">USD</span></p>
+        <h3 class="plan__t" data-es="El sitio web">The website</h3>
+        <p class="plan__d" data-es="Hasta 5 páginas, diseñado y escrito, bilingüe, listo para vivir en tu dominio.">Up to 5 pages, designed and written, bilingual, ready to live on your own domain.</p>
+        <ul class="plan__l">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-es="Diseño y textos incluidos">Design and copywriting included</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-es="Hasta 5 páginas">Up to 5 pages</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-es="Inglés y Español">English and Español</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-es="WhatsApp, mapa y galería">WhatsApp, map and gallery</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-es="Ajustes hasta que quedes conforme">Revisions until you're happy</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-es="Los archivos son tuyos">The files are yours</span></li>
+        </ul>
+        <p class="plan__fine" data-es="Se paga la mitad al empezar y la mitad cuando sale en vivo.">Half when we start, half when it goes live.</p>
+      </article>
+
+      <article class="plan plan--hi r">
+        <span class="plan__flag" data-es="Recomendado">Recommended</span>
+        <p class="plan__k" data-es="Cada mes">Monthly</p>
+        <p class="plan__p"><span class="cur">$</span><b class="num" data-n="29">29</b><span class="cur cur--u">USD</span><i class="per" data-es="/mes">/mo</i></p>
+        <h3 class="plan__t" data-es="Hosting y mantenimiento">Hosting &amp; care</h3>
+        <p class="plan__d" data-es="Yo lo tengo en línea, seguro y funcionando. Si algo se rompe, es mi problema, no tu tarde.">I keep it online, secure and working. If something breaks, it's my problem — not your afternoon.</p>
+        <ul class="plan__l">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg><span data-es="Hosting con certificado seguro (HTTPS)">Hosting with an SSL certificate (HTTPS)</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span data-es="Monitoreo: si se cae, yo me entero antes que tú">Uptime monitoring — if it goes down, I know before you do</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-save"/></svg><span data-es="Respaldos automáticos">Automatic backups</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-pen"/></svg><span data-es="Cambios chicos incluidos: horarios, precios, fotos, teléfono">Small edits included — hours, prices, photos, phone</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-es="Arreglos sin costo si algo deja de funcionar">Fixes at no charge if anything stops working</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-es="Te ayudo con la renovación del dominio">Help renewing your domain</span></li>
+        </ul>
+        <p class="plan__fine" data-es="Cancela cuando quieras. Te entrego los archivos y el dominio sigue siendo tuyo.">Cancel any time. I hand over the files and the domain stays yours.</p>
+      </article>
+    </div>
+
+    <!-- comparison -->
+    <div class="compare r">
+      <h3 class="compare__t" data-es="Y comparado con las otras opciones">Set against the other options</h3>
+      <div class="compare__scroll">
+        <table class="cmp">
+          <caption class="vh" data-es="Comparación entre NORVIA, una agencia y un constructor de páginas">Comparison of NORVIA, an agency, and a DIY page builder</caption>
+          <thead>
+            <tr>
+              <th scope="col"><span class="vh" data-es="Concepto">Item</span></th>
+              <th scope="col" class="is-me">NORVIA</th>
+              <th scope="col" data-es="Agencia">An agency</th>
+              <th scope="col" data-es="Constructor (hazlo tú)">DIY builder</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" data-es="Costo inicial">Up-front cost</th>
+              <td class="is-me"><b>$199</b></td>
+              <td data-es="$1,500 – $5,000">$1,500 – $5,000</td>
+              <td data-es="$0 — pero lo haces tú">$0 — but you build it</td>
+            </tr>
+            <tr>
+              <th scope="row" data-es="Costo mensual">Monthly cost</th>
+              <td class="is-me"><b>$29</b></td>
+              <td data-es="$50 – $200">$50 – $200</td>
+              <td data-es="$16 – $50, para siempre">$16 – $50, forever</td>
+            </tr>
+            <tr>
+              <th scope="row" data-es="Tiempo de entrega">Time to live</th>
+              <td class="is-me"><b data-es="1 semana">1 week</b></td>
+              <td data-es="1 – 3 meses">1 – 3 months</td>
+              <td data-es="Tus fines de semana">Your weekends</td>
+            </tr>
+            <tr>
+              <th scope="row" data-es="Quién escribe los textos">Who writes the words</th>
+              <td class="is-me" data-es="Yo">I do</td>
+              <td data-es="Se cotiza aparte">Quoted separately</td>
+              <td data-es="Tú">You do</td>
+            </tr>
+            <tr>
+              <th scope="row" data-es="Bilingüe">Bilingual</th>
+              <td class="is-me"><svg class="ico ok" aria-hidden="true"><use href="#i-check"/></svg><span class="vh" data-es="Sí, incluido">Yes, included</span></td>
+              <td data-es="Costo extra">Costs extra</td>
+              <td data-es="Plugin de pago">Paid plugin</td>
+            </tr>
+            <tr>
+              <th scope="row" data-es="Velocidad">Speed</th>
+              <td class="is-me" data-es="Código a mano, mínimo">Hand-written, minimal</td>
+              <td data-es="Depende del equipo">Depends on the team</td>
+              <td data-es="Lento y con anuncios">Slow, often with ads</td>
+            </tr>
+            <tr>
+              <th scope="row" data-es="Si dejas de pagar">If you stop paying</th>
+              <td class="is-me" data-es="Te llevas los archivos">You keep the files</td>
+              <td data-es="Depende del contrato">Depends on the contract</td>
+              <td data-es="El sitio desaparece">The site disappears</td>
+            </tr>
+            <tr>
+              <th scope="row" data-es="Con quién hablas">Who you talk to</th>
+              <td class="is-me" data-es="Conmigo, directo">Me, directly</td>
+              <td data-es="Un ejecutivo de cuenta">An account manager</td>
+              <td data-es="Un chat de soporte">A support chat</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- straight talk -->
+    <div class="straight r">
+      <h3 class="straight__t">
+        <span data-es="Y para ser justo:">And to be straight with you:</span>
+        <em data-es="para qué no soy la opción.">what I'm not the right choice for.</em>
+      </h3>
+      <ul>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span data-es="Tiendas en línea grandes, con cientos de productos, inventario y pagos con tarjeta. Eso necesita otra herramienta y otro presupuesto.">Large online stores — hundreds of products, live inventory, card payments. That needs a different tool and a bigger budget.</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span data-es="Sistemas con cuentas de usuario, reservas complejas o software a la medida.">Systems with user accounts, complex reservations, or custom software.</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span data-es="Un panel para que edites todo tú solo cada día. Si publicas seguido, te conviene otra cosa y te lo digo de frente.">A dashboard for you to edit everything yourself daily. If you post constantly, something else suits you better and I'll say so.</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span data-es="Promesas de aparecer en el primer lugar de Google. Hago la parte técnica bien; nadie honesto te puede garantizar un lugar.">Promises of the #1 spot on Google. I do the technical part properly — no honest person can guarantee you a ranking.</span></li>
+      </ul>
+      <p class="straight__f" data-es="Si tu negocio es un taller, una carnicería, un restaurante, una clínica, una constructora, un salón o cualquier lugar donde la gente te busca, te escribe y te visita — para eso sí soy exactamente la opción.">If your business is a shop, a butcher, a restaurant, a clinic, a builder, a salon — anywhere people look you up, message you, and come see you — then this is exactly what I'm for.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── faq ──────────────────────────────────────────────────────────── -->
+<section class="sec sec--dark" id="faq">
+  <div class="wrap wrap--nar">
+    <header class="sec__h r">
+      <p class="eyebrow" data-es="Preguntas">Questions</p>
+      <h2 class="sec__t" data-es="Lo que todos me preguntan.">What everybody asks.</h2>
+    </header>
+
+    <div class="faq r">
+      <details>
+        <summary><span data-es="¿Necesito un dominio? ¿Cuánto cuesta?">Do I need a domain? What does it cost?</span><i aria-hidden="true"></i></summary>
+        <div><p data-es="Sí, conviene tener el tuyo — tunegocio.com se ve serio y es tuyo para siempre. Cuesta entre $12 y $20 USD al año, se paga directo al registrador y va a tu nombre, no al mío. Te acompaño a comprarlo en 10 minutos; no le gano nada a eso.">Yes, and you want your own — yourbusiness.com looks serious and is yours permanently. It runs $12–20 USD a year, paid directly to the registrar and registered in your name, not mine. I'll walk you through buying it in about ten minutes, and I make nothing on it.</p></div>
+      </details>
+
+      <details>
+        <summary><span data-es="¿Por qué tan barato? ¿Qué tiene de malo?">Why so cheap? What's the catch?</span><i aria-hidden="true"></i></summary>
+        <div><p data-es="No hay oficina, no hay vendedores, no hay junta de tres horas. Escribo el código a mano, así que no pago licencias ni suscripciones que luego te tenga que cobrar. Y trabajo desde Chihuahua, no desde una ciudad con rentas de agencia. El precio es bajo porque mis costos son bajos, no porque el trabajo sea menos.">There's no office, no salespeople, no three-hour discovery meeting. I write the code by hand, so I'm not paying for licenses and subscriptions that I'd have to bill back to you. And I work from Chihuahua, not from a city with agency rent. The price is low because my costs are low, not because the work is less.</p></div>
+      </details>
+
+      <details>
+        <summary><span data-es="¿Qué pasa si dejo de pagar los $29?">What happens if I stop paying the $29?</span><i aria-hidden="true"></i></summary>
+        <div><p data-es="Me avisas y ya, sin penalización. Te entrego todos los archivos del sitio y el dominio ya está a tu nombre, así que te lo puedes llevar a otro hosting o dárselo a otra persona. No te dejo con las manos vacías ni con el sitio secuestrado.">You tell me and that's it, no penalty. I hand over every file, and the domain is already in your name, so you can move it to another host or give it to someone else. I don't leave you empty-handed or hold the site hostage.</p></div>
+      </details>
+
+      <details>
+        <summary><span data-es="No tengo fotos buenas ni logo.">I don't have good photos or a logo.</span><i aria-hidden="true"></i></summary>
+        <div><p data-es="Es lo más normal del mundo. Trabajamos con lo que tengas en el celular — se pueden mejorar, recortar y acomodar bastante. Si de plano no hay, te digo exactamente qué fotos tomar y cómo: con tu propio celular, con luz de día, cinco minutos. Y si no tienes logo, te hago uno sencillo y limpio con el nombre, sin costo extra.">That's the most normal thing in the world. We work with what's on your phone — a lot can be done with cropping, correction and good placement. If there's really nothing, I tell you exactly which photos to take and how: your own phone, daylight, five minutes. And if you have no logo, I'll make you a simple clean wordmark at no extra cost.</p></div>
+      </details>
+
+      <details>
+        <summary><span data-es="¿Puedo cambiar cosas yo mismo?">Can I change things myself?</span><i aria-hidden="true"></i></summary>
+        <div><p data-es="Los cambios chicos me los mandas por WhatsApp y van incluidos en los $29: horarios, precios, teléfono, fotos nuevas, un texto. Normalmente el mismo día. Es a propósito — así el sitio no se descompone porque alguien movió algo sin querer, que es lo que más pasa con los paneles de edición. Si quieres editarlo tú directamente, también se puede armar así; dime y lo vemos.">Small changes you send me on WhatsApp and they're included in the $29: hours, prices, phone, new photos, a paragraph. Usually same day. That's deliberate — it means the site can't break because something got moved by accident, which is what actually happens with editing dashboards. If you'd rather edit it yourself, that can be set up too; just tell me.</p></div>
+      </details>
+
+      <details>
+        <summary><span data-es="¿Cuántas páginas y qué tanto se puede cambiar?">How many pages, and how much can be revised?</span><i aria-hidden="true"></i></summary>
+        <div><p data-es="Hasta 5 páginas en los $199 — normalmente inicio, servicios, trabajo o galería, nosotros y contacto. Los ajustes van incluidos hasta que quedes conforme: colores, textos, orden de las secciones, fotos. Lo que se cotiza aparte es empezar de cero con un diseño completamente distinto, o agregar páginas nuevas después.">Up to 5 pages within the $199 — usually home, services, work or gallery, about, and contact. Revisions are included until you're happy: colors, wording, section order, photos. What gets quoted separately is starting over with a completely different design, or adding new pages later on.</p></div>
+      </details>
+
+      <details>
+        <summary><span data-es="¿Haces tiendas en línea?">Do you do online stores?</span><i aria-hidden="true"></i></summary>
+        <div><p data-es="Sencillas sí, y se cotizan aparte. Un catálogo con carrito que manda el pedido por WhatsApp funciona muy bien para negocios locales — así está hecha la de Carnes Hildebrandt, ábrela. Lo que no hago son tiendas grandes con inventario en vivo y pagos con tarjeta; para eso te digo derecho qué usar.">Simple ones, yes, quoted separately. A catalog with a cart that sends the order through WhatsApp works very well for local businesses — that's how the Carnes Hildebrandt site works, go open it. What I don't do is large stores with live inventory and card payments; for that I'll tell you honestly what to use instead.</p></div>
+      </details>
+
+      <details>
+        <summary><span data-es="¿Y si no me gusta cómo quedó?">What if I don't like how it turns out?</span><i aria-hidden="true"></i></summary>
+        <div><p data-es="Se paga la mitad al empezar y la mitad cuando sale en vivo, precisamente por eso: no pagas el resto hasta verlo funcionando y estar conforme. Y antes de escribir una línea te mando la idea del diseño, así nadie se lleva una sorpresa al final.">You pay half at the start and half when it goes live, precisely for that reason: you don't pay the rest until you've seen it working and you're satisfied. And before I write a line of code I show you the design direction, so nobody gets a surprise at the end.</p></div>
+      </details>
+
+      <details>
+        <summary><span data-es="¿Trabajas fuera de Chihuahua?">Do you work outside Chihuahua?</span><i aria-hidden="true"></i></summary>
+        <div><p data-es="Sí. Todo se puede hacer por WhatsApp y el trabajo es el mismo esté donde estés. Nada más que aquí puedo pasar a conocer el negocio y tomar las fotos yo, y eso siempre ayuda.">Yes. All of it works over WhatsApp and the work is the same wherever you are. The only difference is that locally I can come see the business and take the photos myself, which always helps.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── final cta ────────────────────────────────────────────────────── -->
+<section class="cta">
+  <span class="cta__bg" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="cta__in r">
+      <p class="eyebrow" data-es="Empecemos">Let's start</p>
+      <h2 class="cta__t">
+        <span data-es="Mándame un mensaje y dime">Send me a message and tell me</span>
+        <em data-es="a qué te dedicas.">what you do.</em>
+      </h2>
+      <p class="cta__sub" data-es="Eso es todo lo que necesito para empezar. Te contesto el mismo día, te digo con franqueza si te puedo ayudar y cuánto sería. Sin compromiso y sin que nadie te ande persiguiendo después.">That's all I need to get started. I reply the same day, tell you honestly whether I can help and what it would cost. No commitment, and nobody chasing you afterward.</p>
+
+      <a class="btn btn--wa btn--xl" href="https://wa.me/521XXXXXXXXXX?text=Hola%20NORVIA%2C%20quiero%20un%20sitio%20web%20para%20mi%20negocio." target="_blank" rel="noopener" data-wa>
+        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
+        <span data-es="Escríbeme por WhatsApp">Message me on WhatsApp</span>
+      </a>
+
+      <ul class="cta__l">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-es="Respuesta el mismo día">Same-day reply</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-es="Presupuesto claro, sin sorpresas">A clear price, no surprises</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-es="Sin compromiso">No commitment</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ── footer ───────────────────────────────────────────────────────── -->
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div class="foot__brand">
+      <a class="brand brand--f" href="#top" aria-label="NORVIA — home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <path d="M4 22L14 6l10 16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.6 22L14 15l4.4 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".42"/>
+          </svg>
+        </span>
+        <span class="brand__word">NORVIA</span>
+      </a>
+      <p data-es="Sitios web hechos a mano para negocios que la gente busca en el celular. Chihuahua, México.">Hand-built websites for businesses people look up on their phones. Chihuahua, México.</p>
+    </div>
+
+    <nav class="foot__nav" aria-label="Footer">
+      <div>
+        <h3 data-es="Sitio">Site</h3>
+        <a href="#work"  data-es="Trabajo">Work</a>
+        <a href="#get"   data-es="Qué incluye">What you get</a>
+        <a href="#price" data-es="Precio">Pricing</a>
+        <a href="#faq"   data-es="Preguntas">FAQ</a>
+      </div>
+      <div>
+        <h3 data-es="Trabajo">Work</h3>
+        <a href="https://alejandrothiessen.github.io/nb-autoworks/index.html" target="_blank" rel="noopener">NB Autoworks</a>
+        <a href="https://alejandrothiessen.github.io/carnes-hildebrandt-demo/index.html" target="_blank" rel="noopener">Carnes Hildebrandt</a>
+      </div>
+      <div>
+        <h3 data-es="Contacto">Contact</h3>
+        <a href="https://wa.me/521XXXXXXXXXX?text=Hola%20NORVIA%2C%20quiero%20un%20sitio%20web%20para%20mi%20negocio." target="_blank" rel="noopener" data-wa>WhatsApp</a>
+        <a href="mailto:hola@norvia.mx">hola@norvia.mx</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="wrap foot__bar">
+    <p>© <span id="yr">2026</span> NORVIA. <span data-es="Hecho a mano en Chihuahua.">Built by hand in Chihuahua.</span></p>
+    <button class="lang lang--f" type="button" data-lang-alt>
+      <span data-es="Ver en inglés">Ver en español</span>
+    </button>
+  </div>
+</footer>
+
+<a class="wa-pill" id="waPill" href="https://wa.me/521XXXXXXXXXX?text=Hola%20NORVIA%2C%20quiero%20un%20sitio%20web%20para%20mi%20negocio." target="_blank" rel="noopener" data-wa aria-label="WhatsApp">
+  <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
+  <span data-es="Escríbeme">Message me</span>
+</a>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
